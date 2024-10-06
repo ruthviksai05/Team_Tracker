@@ -40,6 +40,9 @@
             $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
                 .done(function () {
                     alert('Logged in successfully!');
+                })
+                .fail(function () {
+                    alert('Failed to log in. Please try again.');
                 });
         });
 
@@ -50,10 +53,13 @@
             const completedTask = $('#completed_task').val();
             const logoffTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';
             $.post(url, { employee_id: employeeId, completed_task: completedTask, logoff_time: logoffTime })
                 .done(function () {
                     alert('Logged off successfully!');
+                })
+                .fail(function () {
+                    alert('Failed to log off. Please try again.');
                 });
         });
     </script>
