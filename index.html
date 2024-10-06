@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>Employee Task Tracker</h1>
+    
+    <!-- Login Form -->
     <form id="login-form">
         <label for="employee_id">Employee ID:</label>
         <input type="text" id="employee_id" name="employee_id" required>
@@ -18,6 +20,9 @@
         <button type="submit">Login</button>
     </form>
 
+    <hr> <!-- Separator -->
+
+    <!-- Logoff Form -->
     <form id="logoff-form">
         <label for="logoff_employee_id">Employee ID:</label>
         <input type="text" id="logoff_employee_id" name="employee_id" required>
@@ -36,13 +41,13 @@
             const task = $('#task').val();
             const loginTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your deployed web app URL
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your script ID
             $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
-                .done(function () {
+                .done(function (response) {
                     alert('Logged in successfully!');
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
-                    alert('Failed to log in: ' + errorThrown);
+                    alert('Error: ' + textStatus + ' - ' + errorThrown);
                 });
         });
 
@@ -53,13 +58,13 @@
             const completedTask = $('#completed_task').val();
             const logoffTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your deployed web app URL
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your script ID
             $.post(url, { employee_id: employeeId, completed_task: completedTask, logoff_time: logoffTime })
-                .done(function () {
+                .done(function (response) {
                     alert('Logged off successfully!');
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
-                    alert('Failed to log off: ' + errorThrown);
+                    alert('Error: ' + textStatus + ' - ' + errorThrown);
                 });
         });
     </script>
