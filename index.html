@@ -36,13 +36,13 @@
             const task = $('#task').val();
             const loginTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your deployed web app URL
             $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
                 .done(function () {
                     alert('Logged in successfully!');
                 })
-                .fail(function () {
-                    alert('Failed to log in. Please try again.');
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    alert('Failed to log in: ' + errorThrown);
                 });
         });
 
@@ -53,13 +53,13 @@
             const completedTask = $('#completed_task').val();
             const logoffTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your deployed web app URL
             $.post(url, { employee_id: employeeId, completed_task: completedTask, logoff_time: logoffTime })
                 .done(function () {
                     alert('Logged off successfully!');
                 })
-                .fail(function () {
-                    alert('Failed to log off. Please try again.');
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    alert('Failed to log off: ' + errorThrown);
                 });
         });
     </script>
