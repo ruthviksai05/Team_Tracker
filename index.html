@@ -41,7 +41,7 @@
             const task = $('#task').val();
             const loginTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your script ID
+            const url = 'https://script.google.com/macros/s/AKfycby4eHkgUveAQp2nxI3LusVRvuxfCmERaoxwYKjw8PartH_fXCpxMNtr4WGB83BWKNZzhw/exec';  // Replace with your script ID
             $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
                 .done(function (response) {
                     alert('Logged in successfully!');
@@ -58,7 +58,7 @@
             const completedTask = $('#completed_task').val();
             const logoffTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';  // Replace with your script ID
+            const url = 'https://script.google.com/macros/s/AKfycby4eHkgUveAQp2nxI3LusVRvuxfCmERaoxwYKjw8PartH_fXCpxMNtr4WGB83BWKNZzhw/exec';  // Replace with your script ID
             $.post(url, { employee_id: employeeId, completed_task: completedTask, logoff_time: logoffTime })
                 .done(function (response) {
                     alert('Logged off successfully!');
