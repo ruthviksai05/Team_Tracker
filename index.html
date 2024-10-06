@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Task Tracker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Employee Task Tracker</h1>
+    <form id="login-form">
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id" required>
+        <br>
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <form id="logoff-form">
+        <label for="logoff_employee_id">Employee ID:</label>
+        <input type="text" id="logoff_employee_id" name="employee_id" required>
+        <br>
+        <label for="completed_task">Completed Task:</label>
+        <input type="text" id="completed_task" name="completed_task" required>
+        <br>
+        <button type="submit">Log Off</button>
+    </form>
+
+    <script>
+        // Function to submit login data to Google Sheets
+        $('#login-form').submit(function (event) {
+            event.preventDefault();
+            const employeeId = $('#employee_id').val();
+            const task = $('#task').val();
+            const loginTime = new Date().toISOString();
+
+            const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
+                .done(function () {
+                    alert('Logged in successfully!');
+                });
+        });
+
+        // Function to submit logoff data to Google Sheets
+        $('#logoff-form').submit(function (event) {
+            event.preventDefault();
+            const employeeId = $('#logoff_employee_id').val();
+            const completedTask = $('#completed_task').val();
+            const logoffTime = new Date().toISOString();
+
+            const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            $.post(url, { employee_id: employeeId, completed_task: completedTask, logoff_time: logoffTime })
+                .done(function () {
+                    alert('Logged off successfully!');
+                });
+        });
+    </script>
+</body>
+</html>
