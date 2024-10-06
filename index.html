@@ -36,7 +36,7 @@
             const task = $('#task').val();
             const loginTime = new Date().toISOString();
 
-            const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+            const url = 'https://script.google.com/macros/s/AKfycbx_sZb0z6m7O9LgG17tT2HVI__vrAZC1udKgMBsGhsVkK821QPV-NK24j-heDkvbBXw7w/exec';
             $.post(url, { employee_id: employeeId, task: task, login_time: loginTime })
                 .done(function () {
                     alert('Logged in successfully!');
